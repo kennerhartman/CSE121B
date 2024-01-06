@@ -1,10 +1,10 @@
-// 🔍 Part 1 error
+// 🔍 Part 1 error - has been resolved
 let userName = "Moroni";
 console.log(`Username: ${userName}`);
 userName = "Moronihah";
 console.log(`Username: ${userName}`);
 
-// 🔍 Part 2 error
+// 🔍 Part 2 error - has been resolved
 const currentDateAndTime = Date();
 console.log(`It is now ${currentDateAndTime}`);
 
