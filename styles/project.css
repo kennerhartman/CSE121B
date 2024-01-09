@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 :root {
     --primary-color: rgb(37, 40, 48);
     --secondary-color: rgb(21, 25, 28);
+    --background-color: rgb(67, 73, 86);
 }
 
 /* Universal Selector */
@@ -8,35 +11,87 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: var(--primary-color);
 }
 
 /* HTML Selectors */
 body {
-    font-family: 'Roboto', Helvetica, sans-serif;
+    font-family: 'Inter';
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto 1rem;
-    border: 1px solid rgba(0, 0, 0, .1);
-    padding: 1rem;
-    background-color: #eee;
+    margin-top: 15px;
+    border-radius: 15px;
+    padding: 1.5rem;
 }
 
-input {
-    padding: .35rem;
+section, section > * {
+    background-color: var(--secondary-color);
+    color: lightgrey;
+    width: fit-content;
+    margin-bottom: 3px;
 }
 
-#pfp {
+.link-div {
+    position: relative;
+    right: 2px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: var(--background-color);
+    border-radius: 15px;
+    height: 25px;
+}
+
+.link-div > * {
+    background-color: inherit;
+    border-radius: inherit;
+    position: relative;
+    bottom: 7.5px;
+    color: lightgrey;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.link-img {
+    position: relative;
+    bottom: 5px;
+    left: 1px;
+}
+
+input[type=text] {
+    font-size: 12pt;
+    inline-size: 400px;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 15px;   
+    outline-offset: -2px;
+    background-color: var(--secondary-color);
+    color: lightgrey;
+}
+
+.link-div:hover {
+    opacity: 0.75;
+}
+
+.pfp {
     border-radius: 50px;
 }
 
-#icon {
+.icon {
     border-radius: 15px;
 }
 
 #content {
    margin-bottom: 100px;
+}
+
+#content > section {
+    min-width: 500px;
+    max-width: 500px;
+}
+
+#directions {
+    font-size: 11pt;
+    padding: 20px;
+    width: 400px !important;
 }

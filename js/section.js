@@ -17,24 +17,40 @@ export const buildUserSection = (userData) => {
     h1.innerHTML = `${userData.username}`;
 
     const pfp = document.createElement('img');
-    pfp.setAttribute('id', 'pfp');
+    pfp.setAttribute('class', 'pfp');
     pfp.setAttribute('src', `${userData.avatar_url}`);
     pfp.setAttribute('alt', `pfp for ${userData.username}`);
     pfp.setAttribute('height', 75);
     pfp.setAttribute('width', 75);
+
+    const linkDiv = document.createElement('div');
+    linkDiv.setAttribute('class', 'link-div')
+    
+    const linkImg = document.createElement('img');
+    linkImg.setAttribute('class', 'link-img');
+    linkImg.setAttribute('src', "/images/link.svg");
+    linkImg.setAttribute('alt', `open in new tab`);
+    linkImg.setAttribute('height', 12.5);
+    linkImg.setAttribute('width', 12.5);
 
     const userUrl = document.createElement('a');
     userUrl.innerHTML = `${userData.id}`;
     userUrl.setAttribute('href', `https://modrinth.com/user/${userData.username}`);
     userUrl.setAttribute('target', '_blank');
 
+    userUrl.append(linkImg);
+
     const role = document.createElement('p');
     role.innerHTML = `${userData.role}`;
 
-    section.appendChild(h1);
     section.appendChild(pfp);
-    section.appendChild(userUrl);
+    section.appendChild(h1);
     section.appendChild(role);
+
+    linkDiv.appendChild(userUrl);
+    linkDiv.appendChild(linkImg);
+
+    section.appendChild(linkDiv);
     content.appendChild(section);
 }
 
@@ -80,7 +96,7 @@ export const buildProjectSection = (projectData) => {
         h1.innerHTML = `${project.title}`;
     
         const pfp = document.createElement('img');
-        pfp.setAttribute('id', 'icon');
+        pfp.setAttribute('class', 'icon');
         pfp.setAttribute('src', `${project.icon_url}`);
         pfp.setAttribute('alt', `Icon for '${project.title}' project`);
         pfp.setAttribute('height', 75);
@@ -90,6 +106,16 @@ export const buildProjectSection = (projectData) => {
         slug.innerHTML = `${project.id}`;
         slug.setAttribute('href', `https://modrinth.com/mod/${project.slug}`);
         slug.setAttribute('target', '_blank');
+
+        const linkDiv = document.createElement('div');
+        linkDiv.setAttribute('class', 'link-div')
+        
+        const linkImg = document.createElement('img');
+        linkImg.setAttribute('class', 'link-img');
+        linkImg.setAttribute('src', "/images/link.svg");
+        linkImg.setAttribute('alt', `open in new tab`);
+        linkImg.setAttribute('height', 12.5);
+        linkImg.setAttribute('width', 12.5);
     
         const followers = document.createElement('p');
         followers.innerHTML = `Followers: ${shortenNumber(project.followers)}`;
@@ -105,11 +131,16 @@ export const buildProjectSection = (projectData) => {
 
         section.appendChild(h1);
         section.appendChild(pfp);
-        section.appendChild(slug);
+        
         section.appendChild(followers);
         section.appendChild(downloads);
         section.appendChild(clientSideStatus);
         section.appendChild(serverSideStatus);
+
+        linkDiv.appendChild(slug)
+        linkDiv.appendChild(linkImg)
+        section.appendChild(linkDiv);
+
         content.appendChild(section);
     });
 }

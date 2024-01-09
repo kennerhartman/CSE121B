@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Modrinth Stats | CSE 121b | W06 Project</title>
+        <title>Modrinth User Stats | CSE 121b | W06 Project</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -29,9 +29,19 @@
         </nav>
 
         <main id="home">
-            <section>
-                <input id="input-username">
+            <section id="directions">
+                <p>
+                    To use, simple type in a username or ID from Modrinth.
+                    For example, type in, 'shadowhunter22', my profile!
+
+                    <br>
+                    <br>
+
+                    Try other profiles such as, 'Prospector', 'JZA4dW8o', and 'Terraformers'.
+                </p>
             </section>
+            
+            <input type="text" id="input-username" placeholder="Enter Modrinth Username or ID">
 
             <div id="content"></div> <!-- will be populated when input is received from the user -->
         </main>

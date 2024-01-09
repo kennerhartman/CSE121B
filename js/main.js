@@ -24,15 +24,15 @@ inputField.addEventListener('keydown', async (event) => {
     } else if (event.keyCode === enterKey) { // entry key was pressed
         const id = inputField.value;
         clearInputField();
-        clearContent();
         
         const userData = await getUserData(id);
         const projectData = await getProjectData(id);
-
+        
+        clearContent();
+        
+        // TODO refactor functions
         buildUserSection(userData);
         buildProjectSection(projectData)
-        
-        // TODO - style the DOM
     }
 });
 

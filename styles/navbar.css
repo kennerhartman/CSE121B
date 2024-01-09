@@ -9,6 +9,7 @@ nav {
     width: 100%;
     position: fixed;
     top: 0;
+    z-index: 1;
 }
 
 nav ul {
@@ -18,6 +19,7 @@ nav ul {
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: 0 auto;
+    background-color: black;
 }
 
 nav ul li {
@@ -47,6 +49,7 @@ nav ul li a {
     color: white;
     text-align: center;
     font-family: 'Arial Narrow', Arial, sans-serif;
+    background-color: black;
 }
 
 nav ul li a:hover {
@@ -88,10 +91,10 @@ footer {
     }
 
     #home {
-        margin: 100px auto 20px;
-        grid-template-columns: 250px 1fr;
-        max-width: -moz-fit-content;
-        max-width: fit-content;
+        margin: 100px;
+        /* grid-template-columns: 250px 1fr; */
+        /* max-width: -moz-fit-content; */
+        /* max-width: fit-content; */
     }
 
     #task3 {
