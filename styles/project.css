@@ -28,3 +28,15 @@ section {
 input {
     padding: .35rem;
 }
+
+#pfp {
+    border-radius: 50px;
+}
+
+#icon {
+    border-radius: 15px;
+}
+
+#content {
+   margin-bottom: 100px;
+}
