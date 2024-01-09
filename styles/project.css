@@ -1,0 +1,30 @@
+:root {
+    --primary-color: rgb(37, 40, 48);
+    --secondary-color: rgb(21, 25, 28);
+}
+
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML Selectors */
+body {
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 1rem;
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 1rem;
+    background-color: #eee;
+}
+
+input {
+    padding: .35rem;
+}
