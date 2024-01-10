@@ -28,7 +28,7 @@ export const buildUserSection = (userData) => {
     
     const linkImg = document.createElement('img');
     linkImg.setAttribute('class', 'link-img');
-    linkImg.setAttribute('src', "images/link.svg");
+    linkImg.setAttribute('src', "./images/link.svg");
     linkImg.setAttribute('alt', `open in new tab`);
     linkImg.setAttribute('height', 12.5);
     linkImg.setAttribute('width', 12.5);
@@ -112,7 +112,7 @@ export const buildProjectSection = (projectData) => {
         
         const linkImg = document.createElement('img');
         linkImg.setAttribute('class', 'link-img');
-        linkImg.setAttribute('src', "images/link.svg");
+        linkImg.setAttribute('src', "./images/link.svg");
         linkImg.setAttribute('alt', `open in new tab`);
         linkImg.setAttribute('height', 12.5);
         linkImg.setAttribute('width', 12.5);
