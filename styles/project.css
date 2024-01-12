@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 :root {
-    --primary-color: rgb(37, 40, 48);
-    --secondary-color: rgb(21, 25, 28);
-    --background-color: rgb(67, 73, 86);
+    /* default: light mode color scheme */
+    --primary-color: '#e5e7eb'; 
+    --secondary-color: '#ffffff';
+
+    --text-color: black;
+    --link-background-color: '#e5e7eb';
 }
 
 /* Universal Selector */
@@ -11,12 +14,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--primary-color);
 }
 
 /* HTML Selectors */
 body {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-color);
+}
+
+button {
+    background-color: transparent;
 }
 
 section {
@@ -27,9 +34,18 @@ section {
 
 section, section > * {
     background-color: var(--secondary-color);
-    color: lightgrey;
+    color: var(--text-color);
     width: fit-content;
     margin-bottom: 3px;
+}
+
+.project {
+    float: left;
+    margin-right: 15px;
+}
+
+.project:last-child {
+    margin-bottom: 150px;
 }
 
 .link-div {
@@ -37,7 +53,7 @@ section, section > * {
     right: 2px;
     margin-top: 5px;
     padding: 10px;
-    background-color: var(--background-color);
+    background-color: var(--link-background-color);
     border-radius: 15px;
     height: 25px;
 }
@@ -47,15 +63,22 @@ section, section > * {
     border-radius: inherit;
     position: relative;
     bottom: 7.5px;
-    color: lightgrey;
+    color: var(--text-color);
     font-size: 0.875rem;
     text-decoration: none;
 }
 
-.link-img {
+.link-img > svg {
     position: relative;
-    bottom: 5px;
-    left: 1px;
+    top: 2px;
+    right: 2px;
+
+    width: 12.5px;
+    height: 12.5px;
+}
+
+.link-img > svg > * {
+    stroke: var(--text-color);
 }
 
 input[type=text] {
@@ -66,7 +89,7 @@ input[type=text] {
     border-radius: 15px;   
     outline-offset: -2px;
     background-color: var(--secondary-color);
-    color: lightgrey;
+    color: var(--text-color);
 }
 
 .link-div:hover {
@@ -85,13 +108,42 @@ input[type=text] {
    margin-bottom: 100px;
 }
 
-#content > section {
-    min-width: 500px;
-    max-width: 500px;
+#content > * {
+    max-width: 250px;
+}
+
+#content > .project {
+    min-height: 300px;
+    max-height: 300px;
 }
 
 #directions {
-    font-size: 11pt;
-    padding: 20px;
-    width: 400px !important;
+    font-size: 12pt;
+    padding: 0.75rem;
+    border-radius: 15px;   
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+#project-heading {
+    color: var(--text-color);
+    margin-top: 25px;
+}
+
+#ui-color-mode {
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    box-sizing: border-box;
+    color: var(--text-color);
+    display: flex;
+    padding: 0.25rem;
+    
+    position: fixed;
+    bottom: 64px;
+    right: 16px;
+}
+
+#ui-color-mode:hover {
+    opacity: 0.75;
+    cursor: pointer;
 }

@@ -30,7 +30,6 @@ inputField.addEventListener('keydown', async (event) => {
         
         clearContent();
         
-        // TODO refactor functions
         buildUserSection(userData);
         buildProjectSection(projectData)
     }

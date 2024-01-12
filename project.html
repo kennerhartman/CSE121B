@@ -29,23 +29,29 @@
         </nav>
 
         <main id="home">
-            <section id="directions">
-                <p>
-                    To use, simply type in a username or ID from Modrinth.
-                    For example, type in, 'shadowhunter22', my profile!
+            <div>
+                <section id="directions">
+                    <p>
+                        To use, simply type in a username or ID from Modrinth.
+                        For example, type in, 'shadowhunter22', my profile!
+    
+                        <br>
+                        <br>
+    
+                        Try other profiles such as, 'Prospector', 'JZA4dW8o', and 'Terraformers'.
+                    </p>
+                </section>
 
-                    <br>
-                    <br>
-
-                    Try other profiles such as, 'Prospector', 'JZA4dW8o', and 'Terraformers'.
-                </p>
-            </section>
-            
-            <input type="text" id="input-username" placeholder="Enter Modrinth Username or ID">
+                <input type="text" id="input-username" placeholder="Enter Modrinth Username or ID">
+            </div>
 
             <div id="content"></div> <!-- will be populated when input is received from the user -->
-        </main>
 
+            <button id="ui-color-mode">
+                <img src="images/light-mode.svg" id="mode-icon" width="25" height="25">
+            </button>
+        </main>
+        
         <footer>
             &copy;<span id="year"></span> | Project | CSE 121b
         </footer>
@@ -55,5 +61,6 @@
         <!-- ES6 Modules -->
         <script src="js/main.js" type="module"></script>
         <script src="js/section.js" type="module"></script>
+        <script src="js/apperance.js" type="module"></script>
     </body>
 </html>
