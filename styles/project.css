@@ -147,3 +147,28 @@ input[type=text] {
     opacity: 0.75;
     cursor: pointer;
 }
+
+#error-content > * {
+    background-color: rgb(247, 125, 125);
+
+    height: 50px;
+}
+
+#error-content > * > * {
+    background-color: rgb(247, 125, 125);
+    color: white;
+
+    display: inline-block;
+    position: relative;
+    bottom: 18px;
+}
+
+#error-content > * > img {
+    position: relative;
+    bottom: 10px;
+}
+
+#error-content > * > p {
+    position: relative;
+    left: 7.5px;
+}

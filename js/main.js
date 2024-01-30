@@ -29,9 +29,20 @@ inputField.addEventListener('keydown', async (event) => {
         const projectData = await getProjectData(id);
         
         clearContent();
-        
-        buildUserSection(userData);
-        buildProjectSection(projectData)
+
+        if (userData.status !== 200) {
+            buildErrorSection(id);
+
+            return;
+        }
+
+        if (userData.status === 200) {
+            buildUserSection(userData.data);
+        }
+
+        if (projectData.status == 200) {
+            buildProjectSection(projectData.data)
+        }
     }
 });
 
@@ -41,4 +52,25 @@ const clearInputField = () => {
 
 const clearContent = () => {
     document.querySelector('#content').innerHTML = "";
+    document.querySelector('#error-content').innerHTML = "";
+}
+
+const buildErrorSection = (id) => {
+    const content = document.querySelector('#error-content');
+    const section = document.createElement('section');
+    const p = document.createElement('p');
+    p.setAttribute('id', 'error-section');
+    
+    const cautionIcon = document.createElement('img');
+    cautionIcon.setAttribute('src', 'images/caution.svg');
+    cautionIcon.setAttribute('width', '23px');
+    cautionIcon.setAttribute('height', '23px');
+    cautionIcon.setAttribute('draggable', 'false')
+    
+
+    p.innerHTML = `There was an error retrieving the data for the user '${id}'.`;
+
+    section.appendChild(cautionIcon)
+    section.appendChild(p);
+    content.appendChild(section);
 }

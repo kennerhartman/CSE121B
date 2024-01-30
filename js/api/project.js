@@ -5,7 +5,19 @@
  */
  export default async function getProjectData(id) {
     const url = `https://api.modrinth.com/v2/user/${id}/projects`;
-    const response = await fetch(url);
+    const response = await fetch(url).then(async (res) => {
+        if (res.status == 200) {
+            return {
+                status: res.status,
+                data: await res.json()
+            }
+        } else {
+            return {
+                status: res.status,
+                data: null
+            }
+        }
+    });
     
-    return await response.json();
+    return response;
 }
