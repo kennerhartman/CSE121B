@@ -17,7 +17,14 @@ export const buildUserSection = (userData) => {
     const h1 = document.createElement('h1');
     h1.innerHTML = `${userData.username}`;
 
-    const pfp = profileOrModIcon(userData.username, userData.avatar_url, 'pfp');
+    let pfp;
+
+    if (userData.avatar_url === null) {
+        pfp = nullProfileIcon();
+    } else {
+        pfp = profileOrModIcon(userData.username, userData.avatar_url, 'pfp');
+    }
+
     pfp.setAttribute('draggable', 'false');
 
     const linkDiv = document.createElement('div');
@@ -40,7 +47,6 @@ export const buildUserSection = (userData) => {
     section.appendChild(role);
 
     linkDiv.appendChild(userUrl);
-    linkDiv.appendChild(linkImg);
 
     section.appendChild(linkDiv);
     content.appendChild(section);
@@ -73,12 +79,13 @@ export const buildProjectSection = (projectData) => {
         slug.innerHTML = `${project.id}`;
         slug.setAttribute('href', `https://modrinth.com/mod/${project.slug}`);
         slug.setAttribute('target', '_blank');
+        
+        const linkImg = linkIcon();
+        slug.appendChild(linkImg);
 
         const linkDiv = document.createElement('div');
         linkDiv.setAttribute('class', 'link-div')
         
-        const linkImg = linkIcon();
-    
         const followers = document.createElement('p');
         followers.innerHTML = `Followers: ${shortenNumber(project.followers)}`;
 
@@ -100,11 +107,33 @@ export const buildProjectSection = (projectData) => {
         section.appendChild(serverSideStatus);
 
         linkDiv.appendChild(slug)
-        linkDiv.appendChild(linkImg)
         section.appendChild(linkDiv);
 
         content.appendChild(section);
     });
+}
+
+/** 
+* @param {*} id the Modrinth username
+*/
+export const buildErrorSection = (id) => {
+    const content = document.querySelector('#error-content');
+    const section = document.createElement('section');
+    const p = document.createElement('p');
+    p.setAttribute('id', 'error-section');
+    
+    const cautionIcon = document.createElement('img');
+    cautionIcon.setAttribute('src', 'images/caution.svg');
+    cautionIcon.setAttribute('width', '23px');
+    cautionIcon.setAttribute('height', '23px');
+    cautionIcon.setAttribute('draggable', 'false')
+    
+
+    p.innerHTML = `There was an error retrieving the data for the user '${id}'.`;
+
+    section.appendChild(cautionIcon)
+    section.appendChild(p);
+    content.appendChild(section);
 }
 
 const linkIcon = () => {
@@ -140,6 +169,36 @@ const profileOrModIcon = (title, iconUrl, attribute) => {
     icon.setAttribute('width', 75);
 
     return icon;
+}
+
+const nullProfileIcon = () => {
+    // SVG from Modrinth
+    
+    const ns = "http://www.w3.org/2000/svg";
+
+    const svg = document.createElementNS(ns, "svg");
+    svg.setAttribute('height', 75);
+    svg.setAttribute('width', 75);
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('viewBox', '0 0 104 104');
+    svg.setAttribute('aria-hidden', 'true');
+    
+    const circle = document.createElementNS(ns, 'circle');
+    circle.setAttribute('r', '49');
+    circle.setAttribute('cx', '50');
+    circle.setAttribute('cy', '50');
+    // the fill color is set through CSS
+
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', '#9a9a9a');
+    path.setAttribute('stroke-width', '5');
+    path.setAttribute('d', 'M51.7 92.5V51.7L16.4 31.3l35.3 20.4L87 31.3 51.7 11 16.4 31.3v40.8l35.3 20.4L87 72V31.3L51.7 11');
+
+    svg.appendChild(circle);
+    svg.appendChild(path);
+
+    return svg;
 }
 
 /**

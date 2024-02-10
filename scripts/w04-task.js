@@ -67,7 +67,7 @@ myProfile.hobbies.forEach(function (hobby) {
 
 /* Places Lived DataList */
 
-myProfile.placesLived.forEach(function (place) {
+myProfile.placesLived(function (place) {
     let dt = document.createElement('dt');
     let dd = document.createElement('dd');
 

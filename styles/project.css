@@ -7,6 +7,8 @@
 
     --text-color: black;
     --link-background-color: '#e5e7eb';
+
+    --icon-background-color: '#e5e7eb';
 }
 
 /* Universal Selector */
@@ -94,6 +96,7 @@ input[type=text] {
 
 .link-div:hover {
     opacity: 0.75;
+    cursor: pointer;
 }
 
 .pfp {
@@ -171,4 +174,8 @@ input[type=text] {
 #error-content > * > p {
     position: relative;
     left: 7.5px;
+}
+
+circle {
+    fill: var(--link-background-color);
 }

@@ -6,7 +6,7 @@
  * 
  */
 
-const CurrentMode = { // this is the enum that should be exposed to other modules
+const CurrentMode = {
     Dark: "dark",
     Light: "light"
 }
@@ -18,6 +18,7 @@ const changeToDarkMode = () => {
     document.documentElement.style.setProperty('--secondary-color', '#252830');
     document.documentElement.style.setProperty('--text-color', '#d3d3d3');
     document.documentElement.style.setProperty('--link-background-color', '#434956');
+    document.documentElement.style.setProperty('--icon-background-color', '#434956');
     
     const icon = document.querySelector('#mode-icon');
     icon.setAttribute('src', 'images/light-mode.svg'); // svg from Modrinth
@@ -30,6 +31,7 @@ const changeToLightMode = () => {
     document.documentElement.style.setProperty('--secondary-color', '#ffffff');
     document.documentElement.style.setProperty('--text-color', '#000000');
     document.documentElement.style.setProperty('--link-background-color', '#e5e7eb');
+    document.documentElement.style.setProperty('--icon-background-color', '#e5e7eb');
 
     const icon = document.querySelector('#mode-icon');
     icon.setAttribute('src', 'images/dark-mode.svg'); // svg from Modrinth
